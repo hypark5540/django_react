@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getLeads, deleteLead } from "../../actions/leads";
+import { addDemo, deleteDemo } from "../../actions/demo";
 
 export class Leads extends Component {
     static PropTypes = {
@@ -22,11 +23,12 @@ export class Leads extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Title</th>
-                            <th>Message</th>
+                            <th>id</th>
+                            <th>날짜수</th>
+                            <th>NRU</th>
+                            <th>PUR</th>
+                            <th>ARPPU</th>
+                            <th>목표달성액</th>
                             <th />
                         </tr>
                     </thead>
@@ -34,10 +36,11 @@ export class Leads extends Component {
                         {this.props.leads.map(lead => (
                             <tr key={lead.id}>
                                 <td>{lead.id}</td>
-                                <td>{lead.name}</td>
-                                <td>{lead.email}</td>
-                                <td>{lead.title}</td>
-                                <td>{lead.message}</td>
+                                <td>{lead.numberOfDate}</td>
+                                <td>{lead.nru}</td>
+                                <td>{lead.pur}</td>
+                                <td>{lead.arppu}</td>
+                                <td>{lead.goalMoney}</td>
                                 <td>
                                     <button onClick={this.props.deleteLead.bind(this, lead.id)} className="btn btn-danger btn-sm">
                                         {" "}
@@ -57,5 +60,4 @@ const mapStateToProps = state => ({
     leads: state.leads.leads
 });
 
-export default connect(mapStateToProps, { getLeads, deleteLead })
-    (Leads);
+export default connect(mapStateToProps, { getLeads, deleteLead })(Leads);

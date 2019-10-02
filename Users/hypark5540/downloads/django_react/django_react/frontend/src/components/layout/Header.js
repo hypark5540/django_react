@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-
 export class Header extends Component {
     render() {
         return (
+
+
+
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
                 <div className="container">
                     <button
@@ -18,11 +20,17 @@ export class Header extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <a className="navbar-brand" href="#">
-                            Lead Manager
+                            Sims
                                 </a>
                     </div>
+
                 </div>
+
             </nav>
+
+
+
+
         )
     }
 }

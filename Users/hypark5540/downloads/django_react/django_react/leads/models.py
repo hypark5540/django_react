@@ -1,9 +1,35 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class Lead(models.Model):
-    name = models.CharField(max_length = 100)
-    email = models.EmailField(max_length = 100, unique = True)
-    title = models.CharField(max_length = 50, blank = True)
-    message = models.CharField(max_length = 500, blank = True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    objects = models.Manager()
+    numberOfDate = models.IntegerField(default=31,
+                                       validators=[
+                                           MaxValueValidator(31),
+                                           MinValueValidator(1)
+                                       ]
+                                       )
+    nru = models.IntegerField(default=0,
+                              validators=[
+                                  MinValueValidator(0)
+                              ]
+                              )
+    pur = models.IntegerField(default=0,
+                              validators=[
+                                  MaxValueValidator(100),
+                                  MinValueValidator(0)
+                              ]
+                              )
+    arppu = models.IntegerField(default=0,
+                                validators=[
+                                    MinValueValidator(0)
+                                ]
+                                )
+    goalMoney = models.IntegerField(default=0,
+                                    validators=[
+                                        MinValueValidator(0)
+                                    ]
+                                    )
+
 # Create your models here.
