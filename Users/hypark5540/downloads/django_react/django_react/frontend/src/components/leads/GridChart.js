@@ -23,8 +23,15 @@ export class GridChart extends Component {
     render() {
 
         const cols = {
+            col_a: {
+
+            },
+            col_b: {
+
+            },
             ret: {
                 // Make Graph Smooth
+                // alias: 'col_a',
                 type: "linear",
                 min: 0,
                 max: 1
@@ -44,10 +51,10 @@ export class GridChart extends Component {
                     height={window.innerHeight}
                     scale={cols}
                     data={this.props.demo}
-                    padding={[100, 40, 50, 80]}
+                    // padding={[100, 40, 50, 80]}
                     forceFit>
-                    <Axis name="logdate" />
-                    <Axis name="ret" />
+                    <Axis name="col_a" />
+                    <Axis name="col_b" />
                     <Legend />
                     <Tooltip
                         crosshairs={{
@@ -77,9 +84,9 @@ export class GridChart extends Component {
 
 
                     <Facet
-                        type='list'
+                        type='rect'
                         cols={10}
-                        fields={['total', 'col_a', 'col_b']}
+                        fields={['col_a', 'col_b']}
                         colTitle={{
                             offsetY: 10,
                             style: {

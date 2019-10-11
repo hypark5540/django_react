@@ -15,8 +15,9 @@ export class Leads extends Component {
     componentDidMount() {
         this.props.getLeads();
     }
-
     render() {
+        console.log(this.props.leads)
+
         return (
             <Fragment>
                 <h2>Leads</h2>
@@ -29,6 +30,7 @@ export class Leads extends Component {
                             <th>PUR</th>
                             <th>ARPPU</th>
                             <th>목표달성액</th>
+                            <th>created_date</th>
                             <th />
                         </tr>
                     </thead>
@@ -41,6 +43,7 @@ export class Leads extends Component {
                                 <td>{lead.pur}</td>
                                 <td>{lead.arppu}</td>
                                 <td>{lead.goalMoney}</td>
+                                <td>{lead.created_at}</td>
                                 <td>
                                     <button onClick={this.props.deleteLead.bind(this, lead.id)} className="btn btn-danger btn-sm">
                                         {" "}

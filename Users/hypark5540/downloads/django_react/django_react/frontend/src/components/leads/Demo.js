@@ -17,6 +17,7 @@ export class Demo extends Component {
     }
 
     render() {
+        console.log(this.props.demo.arppu)
         return (
             <Fragment>
                 <h2>Demo</h2>
@@ -27,7 +28,6 @@ export class Demo extends Component {
                             <th>logdate</th>
                             <th>col_a</th>
                             <th>col_b</th>
-                            <th>pu</th>
                             <th>arppu</th>
                             <th>output</th>
                             <th>total</th>
@@ -43,7 +43,6 @@ export class Demo extends Component {
                                 <td>{demo.logdate}</td>
                                 <td>{demo.col_a}</td>
                                 <td>{demo.col_b}</td>
-                                <td>{demo.pu}</td>
                                 <td>{demo.arppu}</td>
                                 <td>{demo.output}</td>
                                 <td>{demo.total}</td>
